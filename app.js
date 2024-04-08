@@ -8,9 +8,11 @@ const mongoose = require('mongoose');
 const User = require('./models/User');
 
 const app = express();
+var validateUser = 0;
 
 // Set up static file serving
 app.use(express.static(path.join(__dirname, 'public')));
+app.set('view engine', 'ejs');
 
 // Session middleware setup
 app.use(session({
@@ -30,49 +32,19 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 
 
 // Redirect root URL to login page if not logged in, otherwise redirect to main page
-app.get('/', (req, res) => {
-  if (req.session.userId) {
-    res.redirect('/mainpage.html'); // Redirect to main page if logged in
-  } else {
-    res.redirect('/login.html'); // Redirect to login page if not logged in
-  }
-});
-
 // Main page route (protected)
-app.get('/mainpage.html', requireLogin, (req, res) => {
-  res.sendFile(__dirname + '/public/mainpage.html');
+app.get('/mainpage', requireLogin, (req, res) => {
+  res.render('mainpage');
 });
 
 // Middleware to protect routes
 function requireLogin(req, res, next) {
   if (req.session && req.session.userId) {
-    return next();
+    return next(); // Proceed to the next middleware or route handler
   } else {
-    res.redirect('/login.html'); // Redirect to login page if not logged in
+    res.redirect('/userlogin'); // Redirect to login page if not logged in
   }
 }
-
-// Sign up route
-app.post('/signup', async (req, res) => {
-  const { email, username, password } = req.body; // Extract email, username, and password
-
-  try {
-    // Check if username already exists
-    const existingUser = await User.findOne({ username });
-    if (existingUser) {
-      return res.status(400).json({ success: false, message: 'Username already exists' });
-    }
-
-    // Create new user
-    const newUser = new User({ email, username, password }); // Include email in the user creation
-    await newUser.save();
-
-    res.status(200).json({ success: true, message: 'Sign up successful. You can now log in.' });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ success: false, message: 'Server error' });
-  }
-});
 
 // Login route
 app.post('/login', async (req, res) => {
@@ -92,11 +64,17 @@ app.post('/login', async (req, res) => {
   }
 });
 
+app.get('/userlogin', (req, res) => {
+  res.render('login');
+});
+
+
 // Logout route
 app.get('/logout', (req, res) => {
   req.session.destroy();
-  res.redirect('/login.html');
+  res.redirect('/userlogin');
 });
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
