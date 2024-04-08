@@ -22,6 +22,7 @@
         <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
         <button type="submit">Add Movie</button>
     </form>
+    <button id="logoutButton">Logout</button>
 
     <hr>
 
@@ -40,7 +41,23 @@
         </tbody>
     </table>
 
-    <script src="scripts.js"></script>
+    <script>
+        document.getElementById("logoutButton").addEventListener("click", function () {
+            fetch('/adminLogout', {
+                method: 'GET'
+            })
+            .then(response => {
+                if (response.redirected) {
+                    // Redirect to the login page after successful logout
+                    window.location.href = response.url;
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred during logout.');
+            });
+        });
+    </script>
 </body>
 
 </html>
