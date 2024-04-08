@@ -30,6 +30,14 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log(err));
 
+// Redirect root URL to login page if not logged in, otherwise redirect to main page
+app.get('/', (req, res) => {
+  if (req.session.userId) {
+    res.render('mainpage'); // render to main page if logged in
+  } else {
+    res.render('login'); // render to login page if not logged in
+  }
+});
 
 // Redirect root URL to login page if not logged in, otherwise redirect to main page
 // Main page route (protected)
@@ -68,6 +76,9 @@ app.get('/userlogin', (req, res) => {
   res.render('login');
 });
 
+app.get('/signup', (req, res) => {
+  res.render('signup');
+});
 
 // Logout route
 app.get('/logout', (req, res) => {

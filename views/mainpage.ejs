@@ -3,13 +3,12 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="keywords" content="CineLens, The CineLens, cinlens web, Movies, Series, Free Download, Telegram" />
   <link rel="stylesheet" id="parament-css" href="https://5movierulz.be/wp-content/themes/parament/style.css"
     type="text/css" media="all">
   <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 
 
-  <title>CineLens Web</title>
+  <title>CineLens Web | Our Collection</title>
   <link rel="icon" type="image/png"
     href="https://user-images.githubusercontent.com/103044819/220179083-16f84162-1507-4d73-935b-848c267648c6.jpg" />
   <style>
@@ -248,32 +247,6 @@
       border-radius: 7px;
     }
 
-    .container6 {
-      background-color: #1b95e0;
-      height: 50px;
-      width: -webkit-fill-available;
-      margin-top: 10px;
-      border-radius: 7px;
-    }
-
-    .container7 {
-      background-color: #070707;
-      display: flex;
-      align-items: center;
-      border-radius: 5px;
-      padding-block: 10px;
-      padding-inline: 10px;
-      margin-inline: 50px;
-    }
-
-    .container8 {
-    background-color: #272727;
-    border-radius: 5px;
-    margin-inline: 10px;
-    width: -webkit-fill-available;
-    height: 35px;
-}
-
     .section {
       padding-top: 20px;
     }
@@ -295,6 +268,7 @@
         padding-top: 10px;
         justify-content: center;
         margin-bottom: 30px;
+        padding-inline: 50px;
       }
 
       .container3 {
@@ -309,9 +283,11 @@
         display: block;
       }
 
-      .container7{
-        width: max-content;
+      h2 {
+        margin-top: 25px;
+        font-size: 36px;
       }
+
       p {
         font-size: medium;
       }
@@ -340,6 +316,10 @@
         padding: 0px 20px 0px;
         width: max-content;
       }
+
+      .search-box  {
+        width: auto;
+      }
     }
   </style>
 </head>
@@ -347,12 +327,15 @@
 <body>
   <div class="container">
     <h2> </h2>
-    <h2>CineLens Web</h2>
+    <h2>
+      <a href="/mainpage">
+        CineLens Web
+      </a>
+    </h2>
     <form>
       <div class="search-box">
         <i class="bx bx-search"></i>
-        <input type="text" placeholder="Search a movie (for better results search in Our Collection)"
-          oninput="searchCards(this.value)" />
+        <input type="text" placeholder="Search a movie" oninput="searchCards(this.value)" />
 
       </div>
     </form>
@@ -368,214 +351,159 @@
       </marquee>
     </div>
 
-    <div class="container7">
-      <div class="container8">
-        <h4>
-          <a href="mainpage.html">Home</a>
-        </h4>
+
+
+    <div class="container1">
+      <div class="container2">
+        <h3>Our Collection</h3>
       </div>
-      <div class="container8">
-        <h4>
-          <a href="cricket.html">Cricket</a>
-        </h4>
-      </div>
-      <div class="container8">
-        <h4>
-          <a href="collection.html">
-            Our Collection
-          </a>
-        </h4>
-      </div>
-    </div>
-
-    <div class="container4">
-      <div class="container1">
-        <div class="container2">
-          <h3>Featured Movies</h3>
+      <div class="movie-deck">
+        <div class="movie">
+          <a href="veera.html"><img src="https://pbs.twimg.com/media/Fo2aZx1acAIctKf?format=png&name=900x900"
+              alt="Movie 1"></a>
+          <p>Veera Simha Reddy (2023) HDRip Telugu</p>
         </div>
-
-        <div class="movie-deck">
-          <div class="movie">
-            <a href="dasara.html"><img src="https://upload.wikimedia.org/wikipedia/en/7/7a/Dasara_Film.jpg"
-                alt="Movie 1"></a>
-            <p>Dasara (2023) Pre DVD Telugu</p>
-          </div>
-          <div class="movie">
-            <a href="amigos.html"><img
-                src="https://imgs.search.brave.com/Yu1PhvRfrHoub5bX-CTR6kK-ISGM1e-XMx-IN6RyiiQ/rs:fit:400:600:1/g:ce/aHR0cHM6Ly9jZG4u/MTIzdGVsdWd1LmNv/bS9jb250ZW50L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIzLzAx/L2FtaWdvcy5qcGc"
-                alt="Movie 1"></a>
-            <p>Amigos (2023) HDRip Telugu</p>
-          </div>
-          <div class="movie">
-            <a href="antman.html"><img
-                src="https://m.media-amazon.com/images/M/MV5BYjcyYTk0N2YtMzc4ZC00Y2E0LWFkNDgtNjE1MzZmMGE1YjY1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg"
-                alt="Movie 1"></a>
-            <p>ANT-MAN and the Wasp</p>
-          </div>
-          <div class="movie">
-            <a href="premadesam.html"><img
-                src="https://assets.gadgets360cdn.com/pricee/assets/product/202301/Premadesam_1675184664.jpg"
-                alt="Movie 1"></a>
-            <p>premadesam (2023) HDRip Telugu</p>
-          </div>
-          <div class="movie">
-            <a href="sridevi.html"><img src="https://i.scdn.co/image/ab67616d0000b273a6983fc47cee754bd67b177e"
-                alt="Movie 2"></a>
-            <p>Sridevi Shoban Babu (2023) HDRip Telugu</p>
-          </div>
-          <div class="movie">
-            <a href="softwareblues.html"><img src="https://pbs.twimg.com/media/FUtDZJQUAAAjTo9?format=jpg&name=large"
-                alt="Movie 3"></a>
-            <p>Software Blues (2022) HDRip Telugu</p>
-          </div>
-          <div class="movie">
-            <a href="DearMegha.html"><img
-                src="https://m.media-amazon.com/images/M/MV5BZmJhNmIxOTAtZjQxNS00MGM4LWJlZWItYzk5NjgzNTE2NmE2XkEyXkFqcGdeQXVyMTEzNzg0Mjkx._V1_FMjpg_UX719_.jpg"
-                alt="Movie 4"></a>
-            <p>Dear Megha (2021) HDRip Telugu</p>
-          </div>
-          <div class="movie">
-            <a href="michael.html"><img src="https://tamilvivo.in/michael-tamil-2023-movie-free/20230130_075706/"
-                alt="Movie 4"></a>
-            <p>Michael (2023) HDRip Telugu</p>
-          </div>
+        <div class="movie">
+          <a href="waltair.html"><img
+              src="https://m.media-amazon.com/images/M/MV5BYTQ0OTA5OTEtZWFkNy00Y2Q4LWI1NGEtNDA5OGE0Y2JjZjQxXkEyXkFqcGdeQXVyMTE5NTEyNTg5._V1_.jpg"
+              alt="Movie 2"></a>
+          <p>Waltair veerayya (2023) HDRip Telugu</p>
         </div>
-
-        <h3> </h3>
-        <div class="container2">
-          <h3>Trending</h3>
+        <div class="movie">
+          <a href="tegimpu.html"><img src="https://pbs.twimg.com/media/FkfzFuVUYAEUgJe?format=jpg&name=4096x4096"
+              alt="Movie 4"></a>
+          <p>Tegimpu (2023) HDRip Telugu</p>
         </div>
-
-        <div class="movie-deck">
-          <div class="movie">
-            <a href="balagam.html"><img
-                src="https://naasongslyrics.com/wp-content/uploads/2023/03/balagam-naa-songs.jpg" alt="Movie 2"></a>
-            <p>Balagam (2023) HDRip Telugu</p>
-          </div>
-          <div class="movie">
-            <a href="Daskadhamki.html"><img
-                src="https://assets.gadgets360cdn.com/pricee/assets/product/202303/DAS-KI-DHAHMKI_1679484388.jpg"
-                alt="Movie 3"></a>
-            <p>Das Ka Dhamki (2023) DVDScr Telugu</p>
-          </div>
-          <div class="movie">
-            <a href="avatar2.html"><img
-                src="https://m.media-amazon.com/images/M/MV5BYjhiNjBlODctY2ZiOC00YjVlLWFlNzAtNTVhNzM1YjI1NzMxXkEyXkFqcGdeQXVyMjQxNTE1MDA@._V1_FMjpg_UX1000_.jpg"
-                alt="Movie 4"></a>
-            <p>Avatar 2 (2023) HDRip Telugu</p>
-          </div>
-          <div class="movie">
-            <a href="buttabomma.html"><img
-                src="https://m.media-amazon.com/images/M/MV5BZmVlMTJjMGQtMDQ5Mi00OGQ5LWFmYmMtNTRmODc5MDQ2YzU4XkEyXkFqcGdeQXVyOTA5ODQ4NDc@._V1_.jpg"
-                alt="Movie 1"></a>
-            <p>Butta Bomma (2023) HDRip Telugu </p>
-          </div>
+        <div class="movie">
+          <a href="varisu.html"><img
+              src="https://www.cinejosh.com/reviewsimg/big/varasudu-review_b_1401231239.jpg"
+              alt="Movie 3"></a>
+          <p>Varasudu (2023) HDRip Telugu</p>
         </div>
-
-        <h3> </h3>
-        <div class="container2">
-          <h3>Week Releases</h3>
+        <div class="movie">
+          <a href="kalyanam.html"><img
+              src="https://www.cinejosh.com/reviewsimg/big/kalyanam-kamaneeyam-review_b_1401230416.jpg"
+              alt="Movie 1"></a>
+          <p>Kalyanam Kamaneeyam (2023) HDRip Telugu</p>
         </div>
-
-        <div class="movie-deck">
-          <div class="movie">
-            <a href="dasara.html"><img src="https://upload.wikimedia.org/wikipedia/en/7/7a/Dasara_Film.jpg"
-                alt="Movie 1"></a>
-            <p>Dasara (2023) Pre DVD Telugu</p>
-          </div>
-          <div class="movie">
-            <a href="Rangamarthanda.html"><img
-                src="https://www.cinejosh.com/newsimg/newsmainimg/rangamarthanda-trailer-out_b_2003230558.jpg"
-                alt="Movie 2"></a>
-            <p>Rangamarthanda (2023) HDRip Telugu</p>
-          </div>
-          <div class="movie">
-            <a href="katha.html"><img src="https://pbs.twimg.com/media/FgPCFoDacAE0c3M?format=jpg&name=900x900"
-                alt="Movie 1"></a>
-            <p>Vinaro Bhagyamu Vishnu Katha (2023) HDRip Telugu</p>
-          </div>
-          <div class="movie">
-            <a href="johnwick4.html"><img
-                src="https://m.media-amazon.com/images/M/MV5BOTI1MDA5OTEtNWExMi00NGYwLThmMjUtMDhmNDQ4YTg1NzZlXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_FMjpg_UX1000_.jpg"
-                alt="Movie 4"></a>
-            <p>John Wick 4 (2023) DVDScr Telugu</p>
-          </div>
+        <div class="movie">
+          <a href="hunt.html"><img
+              src="https://m.media-amazon.com/images/M/MV5BMGYyYjJjMzUtZTNlMi00ODliLWI2NTMtODExOTg3YWU2NTE1XkEyXkFqcGdeQXVyNDc2NzU1MTA@._V1_.jpg"
+              alt="Movie 1"></a>
+          <p>Hunt (2023) HDRip Telugu</p>
         </div>
-
-      </div>
-
-
-      <div class="container3">
-        <div class="container2">
-          <h4>
-            <a href="collection.html">Our Collection</a>
-          </h4>
+        <div class="movie">
+          <a href="michael.html"><img src="https://tamilvivo.in/michael-tamil-2023-movie-free/20230130_075706/"
+              alt="Movie 4"></a>
+          <p>Michael (2023) HDRip Telugu</p>
         </div>
-        <div class="movie-deck">
-          <div class="movie">
-            <a href="veera.html"><img src="https://pbs.twimg.com/media/Fo2aZx1acAIctKf?format=png&name=900x900"
-                alt="Movie 1"></a>
-            <p>Veera Simha Reddy (2023) HDRip Telugu</p>
-          </div>
-          <div class="movie">
-            <a href="waltair.html"><img
-                src="https://m.media-amazon.com/images/M/MV5BYTQ0OTA5OTEtZWFkNy00Y2Q4LWI1NGEtNDA5OGE0Y2JjZjQxXkEyXkFqcGdeQXVyMTE5NTEyNTg5._V1_.jpg"
-                alt="Movie 2"></a>
-            <p>Waltair veerayya (2023) HDRip Telugu</p>
-          </div>
-          <div class="movie">
-            <a href="tegimpu.html"><img src="https://pbs.twimg.com/media/FkfzFuVUYAEUgJe?format=jpg&name=4096x4096"
-                alt="Movie 4"></a>
-            <p>Tegimpu (2023) HDRip Telugu</p>
-          </div>
-          <div class="movie">
-            <a href="varisu.html"><img src="https://www.cinejosh.com/reviewsimg/big/varasudu-review_b_1401231239.jpg"
-                alt="Movie 3"></a>
-            <p>Varasudu (2023) HDRip Telugu</p>
-          </div>
-          <div class="movie">
-            <a href="kalayanam.html"><img
-                src="https://www.cinejosh.com/reviewsimg/big/kalyanam-kamaneeyam-review_b_1401230416.jpg"
-                alt="Movie 1"></a>
-            <p>Kalyanam Kamaneeyam (2023) HDRip Telugu</p>
-          </div>
-          <div class="movie">
-            <a href="hunt.html"><img
-                src="https://m.media-amazon.com/images/M/MV5BMGYyYjJjMzUtZTNlMi00ODliLWI2NTMtODExOTg3YWU2NTE1XkEyXkFqcGdeQXVyNDc2NzU1MTA@._V1_.jpg"
-                alt="Movie 1"></a>
-            <p>Hunt (2023) HDRip Telugu</p>
-          </div>
-          <div class="movie">
-            <a href="michael.html"><img src="https://tamilvivo.in/michael-tamil-2023-movie-free/20230130_075706/"
-                alt="Movie 4"></a>
-            <p>Michael (2023) HDRip Telugu</p>
-          </div>
-          <div class="movie">
-            <a href="WriterPadmabhushan.html"><img
-                src="https://m.media-amazon.com/images/M/MV5BOGU4MDUxZDktMTU4Ni00NDZlLTkwNDAtYTM5ZWIwN2RjNmMwXkEyXkFqcGdeQXVyMTA3MDk2NDg2._V1_.jpg"
-                alt="Movie 1"></a>
-            <p>Writer Padmabhushan (2023) HDRip Telugu</p>
-          </div>
-          <div class="container5">
-            <h4>
-              <a href="collection.html">see more</a>
-            </h4>
-          </div>
-          <div class="container6">
-            <h2>
-              <a href="https://t.me/The_CineLens">Follow on Telegram</a>
-              <h2>
-          </div>
+        <div class="movie">
+          <a href="WriterPadmabhushan.html"><img
+              src="https://m.media-amazon.com/images/M/MV5BOGU4MDUxZDktMTU4Ni00NDZlLTkwNDAtYTM5ZWIwN2RjNmMwXkEyXkFqcGdeQXVyMTA3MDk2NDg2._V1_.jpg"
+              alt="Movie 1"></a>
+          <p>Writer Padmabhushan (2023) HDRip Telugu</p>
+        </div>
+        <div class="movie">
+          <a href="buttabomma.html"><img
+              src="https://m.media-amazon.com/images/M/MV5BZmVlMTJjMGQtMDQ5Mi00OGQ5LWFmYmMtNTRmODc5MDQ2YzU4XkEyXkFqcGdeQXVyOTA5ODQ4NDc@._V1_.jpg"
+              alt="Movie 1"></a>
+          <p>Butta Bomma (2023) HDRip Telugu </p>
+        </div>
+        <div class="movie">
+          <a href="amigos.html"><img
+              src="https://imgs.search.brave.com/Yu1PhvRfrHoub5bX-CTR6kK-ISGM1e-XMx-IN6RyiiQ/rs:fit:400:600:1/g:ce/aHR0cHM6Ly9jZG4u/MTIzdGVsdWd1LmNv/bS9jb250ZW50L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIzLzAx/L2FtaWdvcy5qcGc"
+              alt="Movie 1"></a>
+          <p>Amigos (2023) HDRip Telugu</p>
+        </div>
+        <div class="movie">
+          <a href="sir.html"><img src="https://assets.gadgets360cdn.com/pricee/assets/product/202301/sir_1673854894.jpg"
+              alt="Movie 1"></a>
+          <p>Sir (2023) HDRip Telugu</p>
+        </div>
+        <div class="movie">
+          <a href="antman.html"><img
+              src="https://m.media-amazon.com/images/M/MV5BYjcyYTk0N2YtMzc4ZC00Y2E0LWFkNDgtNjE1MzZmMGE1YjY1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg"
+              alt="Movie 1"></a>
+          <p>ANT-MAN and the Wasp (2023) DVDScr Telugu</p>
+        </div>
+        <div class="movie">
+          <a href="katha.html"><img src="https://pbs.twimg.com/media/FgPCFoDacAE0c3M?format=jpg&name=900x900"
+              alt="Movie 1"></a>
+          <p>Vinaro Bhagyamu Vishnu Katha (2023) HDRip Telugu</p>
+        </div>
+        <div class="movie">
+          <a href="sridevi.html"><img src="https://i.scdn.co/image/ab67616d0000b273a6983fc47cee754bd67b177e"
+              alt="Movie 2"></a>
+          <p>Sridevi Shoban Babu (2023) HDRip Telugu</p>
+        </div>
+        <div class="movie">
+          <a href="balagam.html"><img src="https://naasongslyrics.com/wp-content/uploads/2023/03/balagam-naa-songs.jpg"
+              alt="Movie 2"></a>
+          <p>Balagam (2023) HDRip Telugu</p>
+        </div>
+        <div class="movie">
+          <a href="Sanatan.html"><img
+              src="https://www.cinejosh.com/reviewsimg/big/csi-sanatan-review_b_1003230143.jpg"
+              alt="Movie 1"></a>
+          <p>C.S.I. Sanatan (2023) DVDScr Telugu</p>
+        </div>
+        <div class="movie">
+          <a href="phalana.html"><img
+              src="https://m.media-amazon.com/images/M/MV5BMjI5NWZlODMtNDI5Ni00M2E2LWIyZmQtOTNmYjIzYmQzZGUzXkEyXkFqcGdeQXVyMTUzNTgzNzM0._V1_FMjpg_UX1000_.jpg"
+              alt="Movie 1"></a>
+          <p>Phalana Abbayi Phalana Ammayi (2023) DVDScr</p>
+        </div>
+        <div class="movie">
+          <a href="Daskadhamki.html"><img
+              src="https://assets.gadgets360cdn.com/pricee/assets/product/202303/DAS-KI-DHAHMKI_1679484388.jpg"
+              alt="Movie 3"></a>
+          <p>Das Ka Dhamki (2023) DVDScr Telugu</p>
+        </div>
+        <div class="movie">
+          <a href="Rangamarthanda.html"><img
+              src="https://www.cinejosh.com/newsimg/newsmainimg/rangamarthanda-trailer-out_b_2003230558.jpg"
+              alt="Movie 2"></a>
+          <p>Rangamarthanda (2023) HDRip Telugu</p>
+        </div>
+        <div class="movie">
+          <a href="johnwick4.html"><img src="https://m.media-amazon.com/images/M/MV5BOTI1MDA5OTEtNWExMi00NGYwLThmMjUtMDhmNDQ4YTg1NzZlXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_FMjpg_UX1000_.jpg"
+              alt="Movie 4"></a>
+          <p>John Wick 4 (2023) DVDScr Telugu</p>
+        </div>
+        <div class="movie">
+          <a href="dasara.html"><img src="https://upload.wikimedia.org/wikipedia/en/7/7a/Dasara_Film.jpg"
+              alt="Movie 1"></a>
+          <p>Dasara (2023) Pre DVD Telugu</p>
+        </div>
+        <div class="movie">
+          <a href="avatar2.html"><img src="https://m.media-amazon.com/images/M/MV5BYjhiNjBlODctY2ZiOC00YjVlLWFlNzAtNTVhNzM1YjI1NzMxXkEyXkFqcGdeQXVyMjQxNTE1MDA@._V1_FMjpg_UX1000_.jpg"
+              alt="Movie 4"></a>
+          <p>Avatar 2 (2023) HDRip Telugu</p>
+        </div>
+        <div class="movie">
+          <a href="DearMegha.html"><img src="https://m.media-amazon.com/images/M/MV5BZmJhNmIxOTAtZjQxNS00MGM4LWJlZWItYzk5NjgzNTE2NmE2XkEyXkFqcGdeQXVyMTEzNzg0Mjkx._V1_FMjpg_UX719_.jpg"
+              alt="Movie 4"></a>
+          <p>Dear Megha (2021) HDRip Telugu</p>
+        </div>
+        <div class="movie">
+          <a href="softwareblues.html"><img
+              src="https://pbs.twimg.com/media/FUtDZJQUAAAjTo9?format=jpg&name=large"
+              alt="Movie 3"></a>
+          <p>Software Blues (2022) HDRip Telugu</p>
+        </div>
+        <div class="movie">
+          <a href="premadesam.html"><img
+              src="https://assets.gadgets360cdn.com/pricee/assets/product/202301/Premadesam_1675184664.jpg"
+              alt="Movie 1"></a>
+          <p>premadesam (2023) HDRip Telugu</p>
         </div>
       </div>
     </div>
 
-  </div>
-
-  <div class="account-settings">
-    <a href="/account.html">My Account</a>
-    <button id="logoutButton">Logout</button>
-  </div>
+    <div class="account-settings">
+      <a href="account.html">My Account</a>
+      <button id="logoutButton">Logout</button>
+    </div>
   </div>
   <div class="section" id="footer">
     <div class="widget Header credit" data-version="2" id="Header3">
@@ -583,10 +511,10 @@
         <a href="#top">CineLens Web</a>
       </h3>
 
-      <div class="copyright">Copyright © 2023 <a href="##"> @The_CineLens</a>. Not all Rights Reserved.</div>
+      <div class="copyright">Copyright © 2023 <a href="https://t.me/The_CineLens"> @The_CineLens</a>. Not all Rights Reserved.</div>
 
       <p> <strong></strong></p>
-      <p><strong><a href="##"><strong> Contact |</strong></a> <a href="##"><strong> Request | </strong></a> <a
+      <p><strong><a href="https://t.me/Connect_with_the_Cinelensbot"><strong> Contact |</strong></a> <a href="https://t.me/Connect_with_the_Cinelensbot"><strong> Request | </strong></a> <a
             href="##"><strong> Privacy Policy </strong></a></strong></p>
       <p></p>
 
@@ -607,8 +535,7 @@
       });
     }
 
-
-        document.getElementById("logoutButton").addEventListener("click", function () {
+    document.getElementById("logoutButton").addEventListener("click", function () {
             fetch('/logout', {
                 method: 'GET'
             })
@@ -623,7 +550,6 @@
                 alert('An error occurred during logout.');
             });
         });
-
   </script>
 
 </body>
