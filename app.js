@@ -317,7 +317,7 @@ app.post('/addWeekRelease', requireAdminLogin, async (req, res) => {
 });
 
 // Route to handle editing a featured movie
-app.post('/editWeekRelease/:id', requireAdminLogin, async (req, res) => {
+app.post('/editWeekReleaseMovie/:id', requireAdminLogin, async (req, res) => {
   const { title } = req.body;
   const { id } = req.params;
 
@@ -332,7 +332,7 @@ app.post('/editWeekRelease/:id', requireAdminLogin, async (req, res) => {
 });
 
 // Route to handle deleting a featured movie
-app.post('/deleteWeekRelease/:id', requireAdminLogin, async (req, res) => {
+app.post('/deleteWeekReleaseMovie/:id', requireAdminLogin, async (req, res) => {
   const { id } = req.params;
 
   try {
