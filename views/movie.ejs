@@ -309,6 +309,16 @@
       padding-top: 20px;
     }
 
+    #logoutButton {
+        background-color: rgb(219, 38, 38);
+        color: #fff;
+        border: none;
+        border-radius:5px;
+        padding-inline: 25px;
+        padding-block: 10px;
+        cursor: pointer;
+    }
+
     @media screen and (max-width: 768px) {
       body {
         /* modify styles for small screens */
@@ -466,7 +476,23 @@
         <div class="movie-deck">
 
 
-
+          <div class="movie-deck">
+            <% 
+            // Assuming you want to display a random selection of 8 movies
+            // Shuffle the array of movies randomly
+            const shuffledMovies = movies.sort(() => Math.random() - 0.5);
+        
+            // Select the first 6 movies from the shuffled array
+            shuffledMovies.slice(0, 6).forEach(movie => { 
+            %>
+            <div class="movie">
+                <a href="/movies/<%= movie._id %>">
+                    <img src="<%= movie.image %>" alt="<%= movie.title %>" />
+                    <p><%= movie.title %></p>
+                </a>
+            </div>
+            <% }); %>
+        </div>
 
 
 
@@ -488,7 +514,7 @@
   </div>
 
   <div class="account-settings">
-    <a href="account.html">My Account</a>
+    <a href="/users/<%= user._id %>">My Account</a>
     <button id="logoutButton">Logout</button>
   </div>
   </div>

@@ -1,73 +1,271 @@
-<!-- admin.html -->
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel - CineLens</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel - CineLens</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      background-image: url("https://user-images.githubusercontent.com/103044819/220179083-16f84162-1507-4d73-935b-848c267648c6.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .tablink {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .tablink:hover {
+      background-color: #0056b3;
+    }
+
+    .tabcontent {
+      display: none;
+    }
+
+    h2 {
+      margin-top: 20px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    form {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button[type="submit"] {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 20px 0;
+    }
+
+    #logoutButton {
+        background-color: rgb(219, 38, 38);
+        color: #fff;
+        border: none;
+        border-radius:5px;
+        padding-inline: 25px;
+        padding-block: 10px;
+        cursor: pointer;
+    }
+  </style>
 </head>
-
 <body>
-    <h2>Add Movie</h2>
-    <form action="/addmovie" method="POST">
-        <label for="title">Title:</label><br>
-        <input type="text" id="title" name="title"><br>
-        <label for="image">Image URL:</label><br>
-        <input type="text" id="image" name="image"><br>
-        <label for="director">director:</label><br>
-        <input type="text" id="director" name="director"><br>
-        <label for="producer">producer:</label><br>
-        <input type="text" id="producer" name="producer"><br>
-        <label for="cast">cast:</label><br>
-        <input type="text" id="cast" name="cast"><br>
-        <label for="description">Description:</label><br>
-        <textarea id="description" name="description"></textarea><br>
-        <label for="onlineLink">onlineLink:</label><br>
-        <input type="text" id="onlineLink" name="onlineLink"><br>
-        <label for="downloadLink">downloadLink:</label><br>
-        <input type="text" id="downloadLink" name="downloadLink"><br>
+  <div class="container">
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tablink" onclick="openTab(event, 'addMovie')">Add Movie</button>
+      <button class="tablink" onclick="openTab(event, 'featuredMovies')">Featured Movies</button>
+      <button class="tablink" onclick="openTab(event, 'trendingMovies')">Trending Movies</button>
+      <button class="tablink" onclick="openTab(event, 'weekReleases')">Week Releases</button>
+      <button id="logoutButton">Logout</button>
+    </div>
+
+    <!-- Tab content -->
+    <div id="addMovie" class="tabcontent">
+      <!-- Add Movie Form -->
+      <h2>Add Movie</h2>
+      <form action="/addmovie" method="POST">
+        <label for="title">Title:</label><br />
+        <input type="text" id="title" name="title" /><br />
+        <label for="image">Image URL:</label><br />
+        <input type="text" id="image" name="image" /><br />
+        <label for="director">Director:</label><br />
+        <input type="text" id="director" name="director" /><br />
+        <label for="producer">Producer:</label><br />
+        <input type="text" id="producer" name="producer" /><br />
+        <label for="cast">Cast:</label><br />
+        <input type="text" id="cast" name="cast" /><br />
+        <label for="description">Description:</label><br />
+        <textarea id="description" name="description"></textarea><br />
+        <label for="onlineLink">Online Link:</label><br />
+        <input type="text" id="onlineLink" name="onlineLink" /><br />
+        <label for="downloadLink">Download Link:</label><br />
+        <input type="text" id="downloadLink" name="downloadLink" /><br />
         <button type="submit">Add Movie</button>
+      </form>
+    </div>
+
+    <div id="featuredMovies" class="tabcontent">
+      <!-- Featured Movies -->
+      <h2>Featured Movies</h2>
+      <!-- Display featured movies here -->
+      <form action="/addFeaturedMovie" method="POST">
+        <label for="featuredTitle">Title:</label><br />
+        <input type="text" id="featuredTitle" name="title" /><br />
+        <button type="submit">Add Featured Movie</button>
+      </form>
+
+      <hr />
+
+
+      <div>
+        <% featuredMovies.forEach(movie => { %>
+        <form action="/editFeaturedMovie/<%= movie._id %>" method="POST">
+          <label for="featuredTitle">Title:</label>
+          <input
+            type="text"
+            id="featuredTitle"
+            name="title"
+            value="<%= movie.title %>"
+          />
+          <button type="submit">Save</button>
+          <button
+            formaction="/deleteFeaturedMovie/<%= movie._id %>"
+            type="submit"
+          >
+            Delete
+          </button>
+        </form>
+        <% }); %>
+      </div>
+    </div>
+
+    <div id="trendingMovies" class="tabcontent">
+      <!-- Trending Movies -->
+      <h2>Trending Movies</h2>
+      <!-- Display trending movies here -->
+      <form action="/addTrending" method="POST">
+        <label for="trendingTitle">Title:</label><br />
+        <input type="text" id="trendingTitle" name="title" /><br />
+        <button type="submit">Add Trending Movie</button>
+      </form>
+
+      <hr />
+
+      <h2>Trending Movies</h2>
+      <div>
+        <% TrendingMovies.forEach(movie => { %>
+        <form action="/editTrendingMovie/<%= movie._id %>" method="POST">
+          <label for="TrendingTitle">Title:</label>
+          <input
+            type="text"
+            id="TrendingTitle"
+            name="title"
+            value="<%= movie.title %>"
+          />
+          <button type="submit">Save</button>
+          <button
+            formaction="/deleteTrendingMovie/<%= movie._id %>"
+            type="submit"
+          >
+            Delete
+          </button>
+        </form>
+        <% }); %>
+      </div>
+
+    </div>
+
+    <div id="weekReleases" class="tabcontent">
+      <!-- Week Releases -->
+      <h2>Week Releases</h2>
+      <!-- Display week releases here -->
+      <form action="/addWeekRelease" method="POST">
+        <label for="weekReleaseTitle">Title:</label><br />
+        <input type="text" id="weekReleaseTitle" name="title" /><br />
+        <button type="submit">Add Week Releases Movie</button>
+      </form>
+
+      <hr />
+
+      <h2>WeekRelease Movies</h2>
+<div>
+    <% WeekReleaseMovies.forEach(movie => { %>
+    <form action="/editWeekReleaseMovie/<%= movie._id %>" method="POST">
+        <label for="WeekReleaseTitle">Title:</label>
+        <input type="text" id="WeekReleaseTitle" name="title" value="<%= movie.title %>">
+        <button type="submit">Save</button>
+        <button formaction="/deleteWeekReleaseMovie/<%= movie._id %>" type="submit">Delete</button>
     </form>
-    
-    <button id="logoutButton">Logout</button>
+    <% }); %>
+</div>
 
-    <hr>
+    </div>
+  </div>
 
-    <!-- Table to display existing movies -->
-    <h2>Existing Movies</h2>
-    <table id="movieTable">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Movie data will be populated here dynamically -->
-        </tbody>
-    </table>
+  <script>
+    // Function to open specific tab content
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      document.getElementById(tabName).style.display = "block";
+    }
 
-    <script>
-        document.getElementById("logoutButton").addEventListener("click", function () {
-            fetch('/adminLogout', {
-                method: 'GET'
-            })
-            .then(response => {
-                if (response.redirected) {
-                    // Redirect to the login page after successful logout
-                    window.location.href = response.url;
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('An error occurred during logout.');
-            });
+    // Logout button functionality
+    document.getElementById("logoutButton").addEventListener("click", function () {
+      fetch("/adminLogout", {
+        method: "GET",
+      })
+        .then((response) => {
+          if (response.redirected) {
+            // Redirect to the login page after successful logout
+            window.location.href = response.url;
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          alert("An error occurred during logout.");
         });
-    </script>
+    });
+  </script>
 </body>
-
 </html>
