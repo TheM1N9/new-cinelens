@@ -11,17 +11,27 @@
 </head>
 
 <body>
-    <h1>Admin Panel - CineLens</h1>
-
-    <!-- Form to add new movie -->
-    <h2>Add New Movie</h2>
-    <form id="addMovieForm">
-        <label for="title">Title:</label>
-        <input type="text" id="title" name="title" required><br><br>
+    <h2>Add Movie</h2>
+    <form action="/addmovie" method="POST">
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title"><br>
+        <label for="image">Image URL:</label><br>
+        <input type="text" id="image" name="image"><br>
+        <label for="director">director:</label><br>
+        <input type="text" id="director" name="director"><br>
+        <label for="producer">producer:</label><br>
+        <input type="text" id="producer" name="producer"><br>
+        <label for="cast">cast:</label><br>
+        <input type="text" id="cast" name="cast"><br>
         <label for="description">Description:</label><br>
-        <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
+        <textarea id="description" name="description"></textarea><br>
+        <label for="onlineLink">onlineLink:</label><br>
+        <input type="text" id="onlineLink" name="onlineLink"><br>
+        <label for="downloadLink">downloadLink:</label><br>
+        <input type="text" id="downloadLink" name="downloadLink"><br>
         <button type="submit">Add Movie</button>
     </form>
+    
     <button id="logoutButton">Logout</button>
 
     <hr>

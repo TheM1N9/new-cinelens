@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" id="parament-css" href="https://5movierulz.be/wp-content/themes/parament/style.css"
+    type="text/css" media="all">
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+
+  <title>CineLens Web</title>
+  <link rel="icon" type="image/png"
+    href="https://user-images.githubusercontent.com/103044819/220179083-16f84162-1507-4d73-935b-848c267648c6.jpg" />
+  <style>
+    body {
+      background: #202228 url(https://5movierulz.be/wp-content/themes/parament/images/diagonal-stripes-010.png);
+      color: #989eae;
+      font-size: 14px;
+      margin: 0;
+      padding: 15px 0 0px;
+
+    }
+
+    .image {
+
+      padding-inline: 3px;
+      padding-block: 3px;
+      margin-right: 10px;
+      width: 165px;
+      height: 206px;
+      background-color: #111111;
+      display: inline-block;
+      margin-block: 10px;
+      text-align: center;
+    }
+
+    .image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .movie {
+
+      padding-bottom: 50px;
+      padding-inline: 3px;
+      padding-top: 3px;
+      margin-right: 10px;
+      width: 165px;
+      height: 206px;
+      background-color: #111111;
+      display: inline-block;
+      margin-block: 10px;
+      text-align: center;
+
+    }
+
+
+    .movie img {
+
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .movie-deck {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    h2 {
+      margin-top: 0;
+      text-align: center;
+      color: #cccfd7;
+      font-size: 36px;
+
+    }
+
+    h3 {
+      margin-top: 0;
+      text-align: left;
+      color: #cccfd7;
+      font-size: 36px;
+
+    }
+
+    h4 {
+      margin-top: 0;
+      text-align: center;
+      color: #cccfd7;
+      font-size: 25px;
+    }
+
+    h5 {
+      margin-top: 0%;
+      text-align: center;
+      color: #ffffff;
+      font-size: 11px;
+      padding-top: 8px;
+    }
+
+    h6 {
+      text-align: left;
+      color: #cccfd7;
+      font-size: 14px;
+    }
+
+    p {
+      margin-top: 5px;
+      font-size: 12px;
+      font-weight: bold;
+      color: #989eae;
+      text-align: center;
+    }
+
+    l {
+      font-family: Poppins, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      font-size: .94rem;
+      font-weight: bolder;
+      color: #00c1f2;
+      text-align: center;
+    }
+
+    b {
+      font-family: Poppins, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      font-size: .94rem;
+      font-weight: bolder;
+      color: #fc0303;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 0;
+      text-align: center;
+      color: #cccfd7;
+      font-size: 36px;
+    }
+
+    form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .search-box {
+      position: relative;
+      width: 400px;
+      margin: 0 auto;
+      margin-bottom: 40px;
+      color: #d60606;
+    }
+
+    .search-box input[type="text"] {
+      height: 42px;
+      width: 100%;
+      outline: none;
+      border: none;
+      background-color: #ffffff;
+      padding: 0 15px 0 45px;
+      color: #000000;
+      border-radius: 6px;
+    }
+
+    .search-box i {
+      position: absolute;
+      z-index: 2;
+      color: #999;
+      top: 50%;
+      left: 15px;
+      font-size: 20px;
+      transform: translateY(-50%);
+    }
+
+    .account-settings {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: white;
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin-bottom: 10px;
+      margin-right: 20px;
+
+    }
+
+    .account-settings a {
+      margin-right: 10px;
+      color: #333;
+      text-decoration: none;
+      color: white;
+
+    }
+
+    .account-settings a:hover {
+      text-decoration: underline;
+    }
+
+    .see-more a {
+      text-align: right;
+      margin-top: 0;
+      color: #333;
+      text-decoration: none;
+      color: white;
+    }
+
+    .see-more a:hover {
+      color: blue;
+      text-decoration: underline;
+    }
+
+    /* Style the scrollbar track */
+    ::-webkit-scrollbar-track {
+      background-color: #f1f1f1;
+    }
+
+    /* Style the scrollbar handle */
+    ::-webkit-scrollbar-thumb {
+      background-color: #888;
+      border-radius: 10px;
+    }
+
+    /* Style the scrollbar arrow buttons */
+    ::-webkit-scrollbar-button {
+      display: none;
+    }
+
+    /* Style the scrollbar corner */
+    ::-webkit-scrollbar-corner {
+      background-color: #f1f1f1;
+    }
+
+    /* Add some padding to the scrollbar */
+    ::-webkit-scrollbar {
+      width: 12px;
+      height: 12px;
+    }
+
+    .container {
+      padding-inline: 150px;
+    }
+
+    .container1 {
+      width: 1200px;
+      background-color: #272727;
+      padding-bottom: 10px;
+      border-radius: 10px;
+
+    }
+
+    .container2 {
+      background-color: #070707;
+      height: 35px;
+      border-radius: 5px;
+      padding-left: 10px;
+      padding-top: 10px;
+    }
+
+    .container3 {
+      background-color: #272727;
+      border-radius: 10px;
+      padding-inline: 10px;
+      padding-block: 10px;
+      flex-wrap: wrap;
+      width: 1180px;
+    }
+
+    .container4 {
+      display: contents;
+      margin-left: 50px;
+    }
+
+    .container5 {
+      background-color: #d60606;
+      height: 35px;
+      width: 150px;
+      border-radius: 7px;
+    }
+
+    .container6 {
+      background-color: #202228;
+      height: 50px;
+      border-radius: 5px;
+      padding-left: 10px;
+      padding-top: 10px;
+    }
+
+    .container7 {
+      background-color: #1b95e0;
+      height: 25px;
+      border-radius: 5px;
+      width: 150px;
+    }
+
+    .container8 {
+      background-color: #d60606;
+      height: 50px;
+      width: 250px;
+      border-radius: 7px;
+      margin: 50px;
+    }
+    .section {
+      padding-top: 20px;
+    }
+
+    @media screen and (max-width: 768px) {
+      body {
+        /* modify styles for small screens */
+        font-size: medium;
+        padding: inherit;
+      }
+
+      .container {
+        padding: inherit;
+
+      }
+
+      .container1 {
+        width: 370px;
+        padding-top: 10px;
+        justify-content: center;
+        margin-bottom: 30px;
+      }
+
+      .container3 {
+        width: 370px;
+        padding-block: 10px;
+
+
+      }
+
+      .container4 {
+        margin-bottom: 20px;
+        display: block;
+      }
+
+      h2 {
+        margin-top: 25px;
+        font-size: 36px;
+      }
+
+      p {
+        font-size: medium;
+      }
+
+      b {
+        font-size: large;
+      }
+
+      l {
+        font-size: larger;
+      }
+
+      .account-settings {
+        margin-top: 1px;
+        font-size: 20px;
+        margin-bottom: 0px;
+        margin-right: -58px;
+      }
+
+      .widget {
+        background-color: #111;
+        border: 1px solid #444855;
+        border-radius: 7px;
+        margin-bottom: 0px;
+        overflow: hidden;
+        padding: 0px 20px 0px;
+        width: max-content;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2> </h2>
+    <h2>
+      <a href="/mainpage">CineLens Web</a>
+    </h2>
+    <form>
+      <div class="search-box">
+        <i class="bx bx-search"></i>
+        <input type="text" placeholder="Search a movie" oninput="searchCards(this.value)" />
+ 
+      </div>
+    </form>
+
+    <div class="main">
+      <marquee class="marq" direction="left" loop="">
+        <div class="geek2">
+          <b>This website is still under development. Follow
+            <l>@The_CineLens
+            </l> on telegram for more updates.
+          </b>
+        </div>
+      </marquee>
+    </div>
+
+    <div class="container4">
+
+      <div class="container1">
+        <div class="container6">
+          <h3><%= movie.title %></h3>
+        </div>
+        <h3> </h3>
+        <h3> </h3>
+        <div class="movie-deck">
+          <div class="image">
+            <img src= "<%= movie.image %>" alt="Movie 1">
+          </div>
+
+        </div>
+        <div class="movie-deck">
+          <div class="container7">
+            <h5>
+              <a href="https://t.me/The_CineLens">Follow on telegram</a>
+            </h5>
+          </div>
+        </div>
+        <ul>
+          <h6>
+            Directed and Written by : <%= movie.director %>
+          </h6>
+
+          <h6>
+            Produced by : <%= movie.producer %>
+          </h6>
+          <h6>
+            Starring : <%= movie.cast %>
+          </h6>
+          <h6>
+            <%= movie.description %>
+          </h6>
+        </ul>
+
+        <div class="movie-deck">
+          <div class="container8">
+            <h1>
+              <a href= "<%= movie.onlineLink %>" >Watch Online</a>
+            </h1>
+            </div>
+            <div class="container8">
+              <h1>
+                <a href= "<%= movie.downloadLink %>" >Download</a>
+              </h1>
+          </div>
+      </div>
+
+      </div>
+
+      <h3> </h3>
+
+
+      <div class="container3">
+        <div class="container2">
+          <h4>
+            Our Collection
+          </h4>
+        </div>
+        <div class="movie-deck">
+
+
+
+
+
+
+
+
+
+
+
+
+          <div class="container5">
+            <h4>
+              <a href="/mainpage">see more</a>
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="account-settings">
+    <a href="account.html">My Account</a>
+    <button id="logoutButton">Logout</button>
+  </div>
+  </div>
+  <div class="section" id="footer">
+    <div class="widget Header credit" data-version="2" id="Header3">
+      <h3 class="title">
+        <a href="#top">CineLens Web</a>
+      </h3>
+
+      <div class="copyright">Copyright © 2023 <a href="https://t.me/the_CineLens"> @The_CineLens</a>. Not all Rights Reserved.</div>
+
+      <p> <strong></strong></p>
+      <p><strong><a href="https://t.me/Connect_with_the_Cinelensbot"><strong> Contact |</strong></a> <a href="https://t.me/Connect_with_the_Cinelensbot"><strong> Request | </strong></a> <a
+            href="##"><strong> Privacy Policy </strong></a></strong></p>
+      <p></p>
+
+    </div>
+  </div>
+
+  <script>
+    function searchCards(query) {
+      query = query.toLowerCase();
+      const movies = document.querySelectorAll('.movie');
+      movies.forEach(movie => {
+        const title = movie.querySelector('p').textContent.toLowerCase();
+        if (title.includes(query)) {
+          movie.style.display = 'inline-block';
+        } else {
+          movie.style.display = 'none';
+        }
+      });
+    }
+
+    document.getElementById("logoutButton").addEventListener("click", function () {
+            fetch('/logout', {
+                method: 'GET'
+            })
+            .then(response => {
+                if (response.redirected) {
+                    // Redirect to the login page after successful logout
+                    window.location.href = response.url;
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred during logout.');
+            });
+        });
+  </script>
+
+</body>
+
+</html>

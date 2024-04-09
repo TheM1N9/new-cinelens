@@ -9,7 +9,7 @@
   const Admin = require('./models/Admin');
   const Movie = require('./models/Movie');
   const app = express();
-  var validateUser = 0;
+  // var validateUser = 0;
 
   // Set up static file serving
   app.use(express.static(path.join(__dirname, 'public')));
@@ -126,19 +126,44 @@ function requireAdminLogin(req, res, next) {
     res.render('signup');
   });
 
-  // Route to handle adding movie form submission
-  app.post('/addmovie', requireAdminLogin, async (req, res) => {
-    const { title, image, description } = req.body;
+// Route to handle adding movie form submission
+app.post('/addmovie', requireAdminLogin, async (req, res) => {
+  const { title, image, director, producer, cast, description, onlineLink, downloadLink } = req.body;
 
-    try {
-        const newMovie = new Movie({ title, image, description });
-        await newMovie.save();
-        res.redirect('/admin'); // Redirect to main page after adding movie
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ success: false, message: 'Internal server error' });
+  try {
+      // Create a new movie document
+      const newMovie = new Movie({ title, image, director, producer, cast, description, onlineLink, downloadLink });
+      // Save the new movie to the database
+      await newMovie.save();
+      // Redirect to admin page after adding movie
+      res.redirect('/admin');
+  } catch (error) {
+      console.error(error);
+      res.status(500).json({ success: false, message: 'Internal server error' });
+  }
+});
+
+// Route to serve movie pages
+app.get('/movies/:id',requireLogin, async (req, res) => {
+  try {
+    // Retrieve the movie details from the database based on the ID
+    const movie = await Movie.findById(req.params.id);
+    
+    // const movies = await Movie.find(); // Fetch all movies from the database
+    // res.render('movie',{movies});
+
+    if (!movie) {
+      return res.status(404).send('Movie not found');
     }
-  });
+
+    // Render the movie page template with the movie data
+    res.render('movie', { movie });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
 
   // Logout route
   app.get('/logout', (req, res) => {
