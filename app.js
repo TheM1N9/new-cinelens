@@ -397,14 +397,15 @@ app.get('/users/:id',requireLogin, async(req,res) => {
 app.post('/changePassword', async (req, res) => {
   const { currentPassword, newPassword, confirmPassword } = req.body;
   const userId = req.session.userId; // Retrieve user ID from session
-
+  console.log(userId);
+  console.log(currentPassword);
   try {
-    // Fetch the user from the database
+    // Fetch the user from the cons
     const user = await User.findById(userId);
-
+    console.log(user.password);
     // Verify if the current password provided matches the user's current password
-    const passwordMatch = await bcrypt.compare(currentPassword, user.password);
-
+    // const passwordMatch = await bcrypt.compare(currentPassword, user.password);
+    const passwordMatch = (currentPassword ===user.password);
     if (!passwordMatch) {
       return res.status(400).json({ success: false, message: 'Current password is incorrect' });
     }
@@ -415,10 +416,11 @@ app.post('/changePassword', async (req, res) => {
     }
 
     // Hash the new password
-    const hashedPassword = await bcrypt.hash(newPassword, 10);
+    // const hashedPassword = await bcrypt.hash(newPassword, 10);
 
     // Update the user's password in the database
-    user.password = hashedPassword;
+    // user.password = hashedPassword;
+    user.password = newPassword;
     await user.save();
 
     res.status(200).json({ success: true, message: 'Password updated successfully' });
