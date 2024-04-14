@@ -147,6 +147,11 @@
         transform: translateY(-50%);
       }
 
+      .search-box button {
+        display: none;
+        visibility: hidden;
+      }
+
       .account-settings {
         display: flex;
         justify-content: flex-end;
@@ -365,14 +370,11 @@
       <h2>
         <a href="/mainpage"> Aatagallu </a>
       </h2>
-      <form>
+      <form action="/search" method="GET">
         <div class="search-box">
           <i class="bx bx-search"></i>
-          <input
-            type="text"
-            placeholder="Search a movie"
-            oninput="searchCards(this.value)"
-          />
+          <input type="text" name="query" placeholder="Search a movie" />
+          <button type="submit">Search</button>
         </div>
       </form>
 
@@ -412,7 +414,7 @@
 
           <div class="movie-deck">
             <% // Assuming you want to display only the first 5 movies
-            Trendings.slice(0, 4).forEach(movie => { %>
+            TrendingMovies.slice(0, 4).forEach(movie => { %>
             <div class="movie">
               <a href="/movies/<%= movie._id %>">
                 <img src="<%= movie.image %>" alt="<%= movie.title %>" />
@@ -506,18 +508,11 @@
     </div>
 
     <script>
-      function searchCards(query) {
-        query = query.toLowerCase();
-        const movies = document.querySelectorAll(".movie");
-        movies.forEach((movie) => {
-          const title = movie.querySelector("p").textContent.toLowerCase();
-          if (title.includes(query)) {
-            movie.style.display = "inline-block";
-          } else {
-            movie.style.display = "none";
-          }
-        });
-      }
+      document.querySelector('.search-box button[type="submit"]').addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent the default form submission behavior
+        const query = document.querySelector('.search-box input[name="query"]').value;
+        window.location.href = `/search?query=${query}`; // Redirect to the search route with the query parameter
+      });
 
       document
         .getElementById("logoutButton")

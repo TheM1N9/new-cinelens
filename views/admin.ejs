@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin Panel - Aatagallu</title>
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -11,9 +12,9 @@
       margin: 0;
       padding: 0;
       background-image: url("https://user-images.githubusercontent.com/103044819/220179083-16f84162-1507-4d73-935b-848c267648c6.jpg");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
     }
 
     .container {
@@ -95,15 +96,46 @@
     }
 
     #logoutButton {
-        background-color: rgb(219, 38, 38);
-        color: #fff;
-        border: none;
-        border-radius:5px;
-        padding-inline: 25px;
-        padding-block: 10px;
-        cursor: pointer;
+      background-color: rgb(219, 38, 38);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding-inline: 25px;
+      padding-block: 10px;
+      cursor: pointer;
+    }
+
+    /* Media Queries for responsiveness */
+    @media screen and (max-width: 768px) {
+      .container {
+        width: 90%;
+        margin: 20px auto;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .tablink {
+        font-size: 14px;
+        padding: 8px 16px;
+        margin: 10px;
+      }
+
+      #logoutButton{
+        padding-block: 0px;
+      }
+
+      input[type="text"],
+      textarea {
+        font-size: 14px;
+      }
+
+      button[type="submit"] {
+        font-size: 14px;
+        padding: 8px 16px;
+      }
     }
   </style>
+
 </head>
 <body>
   <div class="container">
@@ -111,7 +143,6 @@
     <div class="tabs">
       <button class="tablink" onclick="openTab(event, 'addMovie')">Add Movie</button>
       <button class="tablink" onclick="openTab(event, 'featuredMovies')">Featured Movies</button>
-      <button class="tablink" onclick="openTab(event, 'trendingMovies')">Trending Movies</button>
       <button class="tablink" onclick="openTab(event, 'weekReleases')">Week Releases</button>
       <button id="logoutButton">Logout</button>
     </div>
@@ -122,21 +153,21 @@
       <h2>Add Movie</h2>
       <form action="/addmovie" method="POST">
         <label for="title">Title:</label><br />
-        <input type="text" id="title" name="title" /><br />
+        <input type="text" id="title" name="title" required/><br />
         <label for="image">Image URL:</label><br />
-        <input type="text" id="image" name="image" /><br />
+        <input type="text" id="image" name="image" required/><br />
         <label for="director">Director:</label><br />
-        <input type="text" id="director" name="director" /><br />
+        <input type="text" id="director" name="director" required/><br />
         <label for="producer">Producer:</label><br />
-        <input type="text" id="producer" name="producer" /><br />
+        <input type="text" id="producer" name="producer" required/><br />
         <label for="cast">Cast:</label><br />
-        <input type="text" id="cast" name="cast" /><br />
+        <input type="text" id="cast" name="cast" required/><br />
         <label for="description">Description:</label><br />
-        <textarea id="description" name="description"></textarea><br />
+        <textarea id="description" name="description" required></textarea><br />
         <label for="onlineLink">Online Link:</label><br />
-        <input type="text" id="onlineLink" name="onlineLink" /><br />
+        <input type="text" id="onlineLink" name="onlineLink" required/><br />
         <label for="downloadLink">Download Link:</label><br />
-        <input type="text" id="downloadLink" name="downloadLink" /><br />
+        <input type="text" id="downloadLink" name="downloadLink" required/><br />
         <button type="submit">Add Movie</button>
       </form>
     </div>
@@ -176,41 +207,7 @@
       </div>
     </div>
 
-    <div id="trendingMovies" class="tabcontent">
-      <!-- Trending Movies -->
-      <h2>Trending Movies</h2>
-      <!-- Display trending movies here -->
-      <form action="/addTrending" method="POST">
-        <label for="trendingTitle">Title:</label><br />
-        <input type="text" id="trendingTitle" name="title" /><br />
-        <button type="submit">Add Trending Movie</button>
-      </form>
 
-      <hr />
-
-      <h2>Trending Movies</h2>
-      <div>
-        <% TrendingMovies.forEach(movie => { %>
-        <form action="/editTrendingMovie/<%= movie._id %>" method="POST">
-          <label for="TrendingTitle">Title:</label>
-          <input
-            type="text"
-            id="TrendingTitle"
-            name="title"
-            value="<%= movie.title %>"
-          />
-          <button type="submit">Save</button>
-          <button
-            formaction="/deleteTrendingMovie/<%= movie._id %>"
-            type="submit"
-          >
-            Delete
-          </button>
-        </form>
-        <% }); %>
-      </div>
-
-    </div>
 
     <div id="weekReleases" class="tabcontent">
       <!-- Week Releases -->

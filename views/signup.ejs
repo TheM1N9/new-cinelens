@@ -13,6 +13,8 @@
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center center;
+            margin: 0;
+            font-family: Arial, sans-serif;
         }
 
         .container {
@@ -24,7 +26,7 @@
 
         form {
             background-color: #f2f2f2;
-            padding: 20px;
+            padding: 30px; /* Increased padding for smaller screens */
             border-radius: 5px;
             box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
             width: 300px;
@@ -35,7 +37,7 @@
         input[type="text"],
         input[type="password"] {
             width: 100%;
-            padding: 12px 20px;
+            padding: 14px 20px; /* Increased padding for smaller screens */
             margin: 8px 0;
             box-sizing: border-box;
             border: 2px solid #ccc;
@@ -45,7 +47,7 @@
         button {
             background-color: #4CAF50;
             color: white;
-            padding: 14px 20px;
+            padding: 16px 20px; /* Increased padding for smaller screens */
             margin: 8px 0;
             border: none;
             border-radius: 4px;
@@ -53,15 +55,31 @@
             width: 100%;
         }
 
-        footer {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 50px;
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding-top: 15px;
+        p {
+            margin-top: 10px;
+        }
+
+        /* Media Queries for responsiveness */
+        @media only screen and (max-width: 768px) {
+            form {
+                width: 80%;
+            }
+
+            input[type="email"],
+            input[type="text"],
+            input[type="password"] {
+                padding: 12px 18px; /* Adjusted padding for smaller screens */
+            }
+
+            button {
+                padding: 14px 18px; /* Adjusted padding for smaller screens */
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            form {
+                width: 90%;
+            }
         }
     </style>
 </head>
@@ -100,7 +118,7 @@
             .then(data => {
                 if (data.success) {
                     alert(data.message);
-                    window.location.href = "login.html";
+                    window.location.href = "/userLogin";
                 } else {
                     alert(data.message);
                 }

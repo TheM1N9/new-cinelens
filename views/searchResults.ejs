@@ -1,0 +1,435 @@
+<!-- searchResults.ejs -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" id="parament-css" href="https://5movierulz.be/wp-content/themes/parament/style.css"
+      type="text/css" media="all">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+  
+  
+    <title>Aatagallu | Our Collection</title>
+    <link rel="icon" type="image/png"
+      href="https://user-images.githubusercontent.com/103044819/220179083-16f84162-1507-4d73-935b-848c267648c6.jpg" />
+    <style>
+      body {
+        background: #202228 url(https://5movierulz.be/wp-content/themes/parament/images/diagonal-stripes-010.png);
+        color: #989eae;
+        font-size: 14px;
+        margin: 0;
+        padding: 15px 0 0px;
+  
+      }
+  
+  
+      .movie {
+  
+        padding-bottom: 50px;
+        padding-inline: 3px;
+        padding-top: 3px;
+        margin-right: 10px;
+        width: 165px;
+        height: 206px;
+        background-color: #111111;
+        display: inline-block;
+        margin-block: 10px;
+        text-align: center;
+  
+      }
+  
+  
+      .movie img {
+  
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.2s ease-in-out;
+      }
+  
+      .movie-deck {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+  
+      h2 {
+        margin-top: 0;
+        text-align: center;
+        color: #cccfd7;
+        font-size: 36px;
+  
+      }
+  
+      h3 {
+        margin-top: 0;
+        text-align: left;
+        color: #cccfd7;
+        font-size: 20px;
+  
+      }
+  
+      h4 {
+        margin-top: 0;
+        text-align: center;
+        color: #cccfd7;
+        font-size: 25px;
+      }
+  
+      h4:hover {
+        color: #d60606;
+      }
+  
+      p {
+        margin-top: 5px;
+        font-size: 12px;
+        font-weight: bold;
+        color: #989eae;
+        text-align: center;
+      }
+  
+      l {
+        font-family: Poppins, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        font-size: .94rem;
+        font-weight: bolder;
+        color: #00c1f2;
+        text-align: center;
+      }
+  
+      b {
+        font-family: Poppins, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        font-size: .94rem;
+        font-weight: bolder;
+        color: #fc0303;
+        text-align: center;
+      }
+  
+      form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+      }
+  
+      .search-box {
+        position: relative;
+        width: 400px;
+        margin: 0 auto;
+        margin-bottom: 40px;
+        color: #d60606;
+      }
+  
+      .search-box input[type="text"] {
+        height: 42px;
+        width: 100%;
+        outline: none;
+        border: none;
+        background-color: #ffffff;
+        padding: 0 15px 0 45px;
+        color: #000000;
+        border-radius: 6px;
+      }
+  
+      .search-box i {
+        position: absolute;
+        z-index: 2;
+        color: #999;
+        top: 50%;
+        left: 15px;
+        font-size: 20px;
+        transform: translateY(-50%);
+      }
+  
+      .search-box button{
+        display: none;
+      }
+  
+      .account-settings {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-top: 20px;
+        font-size: 14px;
+        color: white;
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin-bottom: 10px;
+        margin-right: 20px;
+  
+      }
+  
+      .account-settings a {
+        margin-right: 10px;
+        color: #333;
+        text-decoration: none;
+        color: white;
+  
+      }
+  
+      .account-settings a:hover {
+        text-decoration: underline;
+      }
+  
+      .see-more a {
+        text-align: right;
+        margin-top: 0;
+        color: #333;
+        text-decoration: none;
+        color: white;
+      }
+  
+      .see-more a:hover {
+        color: blue;
+        text-decoration: underline;
+      }
+  
+      /* Style the scrollbar track */
+      ::-webkit-scrollbar-track {
+        background-color: #f1f1f1;
+      }
+  
+      /* Style the scrollbar handle */
+      ::-webkit-scrollbar-thumb {
+        background-color: #888;
+        border-radius: 10px;
+      }
+  
+      /* Style the scrollbar arrow buttons */
+      ::-webkit-scrollbar-button {
+        display: none;
+      }
+  
+      /* Style the scrollbar corner */
+      ::-webkit-scrollbar-corner {
+        background-color: #f1f1f1;
+      }
+  
+      /* Add some padding to the scrollbar */
+      ::-webkit-scrollbar {
+        width: 12px;
+        height: 12px;
+      }
+  
+      .container {
+        padding-inline: 80px;
+      }
+  
+      .container1 {
+  
+        background-color: #272727;
+        padding: 10px;
+        border-radius: 10px;
+        margin-right: 20px;
+      }
+  
+      .container2 {
+        background-color: #070707;
+        height: 35px;
+        border-radius: 5px;
+        padding-left: 10px;
+        padding-top: 10px;
+      }
+  
+      .container3 {
+        background-color: #272727;
+        border-radius: 10px;
+        padding-inline: 10px;
+        padding-top: 10px;
+        flex-wrap: wrap;
+        width: 700px;
+      }
+  
+      .container4 {
+        display: flex;
+        margin: 50px;
+      }
+  
+      .container5 {
+        background-color: #d60606;
+        height: 35px;
+        width: 150px;
+        border-radius: 7px;
+      }
+  
+      .section {
+        padding-top: 20px;
+      }
+  
+      #logoutButton {
+          background-color: rgb(219, 38, 38);
+          color: #fff;
+          border: none;
+          border-radius:5px;
+          padding-inline: 25px;
+          padding-block: 10px;
+          cursor: pointer;
+      }
+  
+      @media screen and (max-width: 768px) {
+        body {
+          /* modify styles for small screens */
+          font-size: medium;
+          padding: inherit;
+        }
+  
+        .container {
+          padding: inherit;
+  
+        }
+  
+        .container1 {
+          width: 370px;
+          padding-top: 10px;
+          justify-content: center;
+          margin-bottom: 30px;
+          padding-inline: 50px;
+        }
+  
+        .container3 {
+          width: 370px;
+          padding-block: 10px;
+  
+  
+        }
+  
+        .container4 {
+          margin-bottom: 20px;
+          display: block;
+        }
+  
+        h2 {
+          margin-top: 25px;
+          font-size: 36px;
+        }
+  
+        p {
+          font-size: medium;
+        }
+  
+        b {
+          font-size: large;
+        }
+  
+        l {
+          font-size: larger;
+        }
+  
+        .account-settings {
+          margin-top: 1px;
+          font-size: 20px;
+          margin-bottom: 0px;
+          margin-right: -58px;
+        }
+  
+        .widget {
+          background-color: #111;
+          border: 1px solid #444855;
+          border-radius: 7px;
+          margin-bottom: 0px;
+          overflow: hidden;
+          padding: 0px 20px 0px;
+          width: max-content;
+        }
+  
+        .search-box  {
+          width: auto;
+        }
+      }
+    </style>
+  </head>
+
+<body>
+
+    <div class="container">
+        <h2> </h2>
+        <h2>
+          <a href="/mainpage">
+            Aatagallu
+          </a>
+        </h2>
+        <!-- Update the form action to point to the new search route -->
+    <form action="/search" method="GET">
+      <div class="search-box">
+        <i class="bx bx-search"></i>
+        <input type="text" name="query" placeholder="Search a movie" />
+        <button type="submit">Search</button>
+      </div>
+    </form>
+    
+    
+        <div class="main">
+          <marquee class="marq" direction="left" loop="">
+            <div class="geek2">
+              <b>This website is still under development. Follow
+                <l>@Aatagallu
+                </l> on telegram for more updates.
+              </b>
+            </div>
+          </marquee>
+        </div>
+
+
+  <div class="container">
+    <h2>Search Results</h2>
+    <div class="movie-deck">
+      <% movies.forEach(movie => { %>
+      <div class="movie">
+        <a href="/movies/<%= movie._id %>">
+          <img src="<%= movie.image %>" alt="<%= movie.title %>" />
+          <p><%= movie.title %></p>
+        </a>
+      </div>
+      <% }); %>
+    </div>
+  </div>
+
+  <div class="account-settings">
+    <a href="/users/<%= user._id %>">My Account</a>
+    <button id="logoutButton">Logout</button>
+  </div>
+</div>
+<div class="section" id="footer">
+  <div class="widget Header credit" data-version="2" id="Header3">
+    <h3 class="title">
+      <a href="#top">Aatagallu</a>
+    </h3>
+
+    <div class="copyright">Copyright © 2023 <a href="https://t.me/aatagallu"> @aatagallu</a>. Not all Rights Reserved.</div>
+
+    <p> <strong></strong></p>
+    <p><strong><a href="https://t.me/Connect_with_the_Cinelensbot"><strong> Contact |</strong></a> <a href="https://t.me/Connect_with_the_Cinelensbot"><strong> Request | </strong></a> <a
+          href="##"><strong> Privacy Policy </strong></a></strong></p>
+    <p></p>
+
+  </div>
+</div>
+
+<script>
+    document.querySelector('.search-box button[type="submit"]').addEventListener("click", function (event) {
+      event.preventDefault(); // Prevent the default form submission behavior
+      const query = document.querySelector('.search-box input[name="query"]').value;
+      window.location.href = `/search?query=${query}`; // Redirect to the search route with the query parameter
+    });
+    
+    
+        document.getElementById("logoutButton").addEventListener("click", function () {
+                fetch('/logout', {
+                    method: 'GET'
+                })
+                .then(response => {
+                    if (response.redirected) {
+                        // Redirect to the login page after successful logout
+                        window.location.href = response.url;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred during logout.');
+                });
+            });
+      </script>
+      
+</body>
+
+</html>
